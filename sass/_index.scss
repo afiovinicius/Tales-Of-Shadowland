@@ -1,0 +1,228 @@
+// Section Hero
+.hero {
+  .slide {
+    .swiper-wrapper {
+      height: 100vh;
+      .bg-one {
+        background: url("../assets/banner-1.png") no-repeat center/cover;
+      }
+      .bg-tow {
+        background: $dark url("../assets/banner-2.png") no-repeat center/cover;
+      }
+      .bg-three {
+        background: $dark url("../assets/banner-3.png") no-repeat center/cover;
+      }
+      .container {
+        .content {
+          height: 54rem;
+          padding-top: 13rem;
+          @include flex(row, center, space-between);
+          .h-text {
+            h1 {
+              color: $gray-0;
+              max-width: 57.3rem;
+              margin-bottom: 3.6rem;
+              text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.8);
+            }
+          }
+          .bn2,
+          .bn3 {
+            max-width: 59.2rem;
+          }
+        }
+      }
+    }
+    @include responsive(991px) {
+      .swiper-wrapper {
+        .container .content {
+          .h-text {
+            h1 {
+              max-width: 38rem;
+            }
+          }
+          .bn2,
+          .bn3 {
+            max-width: 42rem;
+          }
+        }
+      }
+    }
+    @include responsive(600px) {
+      .swiper-wrapper {
+        .container {
+          .content {
+            height: 60rem;
+            flex-direction: column;
+            .h-text {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              h1 {
+                text-align: center;
+              }
+              .btn-body {
+                max-width: 18.6rem;
+                text-align: center;
+              }
+            }
+            .bn2,
+            .bn3 {
+              max-width: 34rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Section Infor
+.infor {
+  margin-top: 7.2rem;
+  .container {
+    @include flex(column, center, flex-start);
+    .about {
+      display: flex;
+      align-items: center;
+      margin: 5.2rem 0rem;
+      iframe {
+        height: 28rem;
+        width: 48.8rem;
+        border-radius: 0.8rem;
+      }
+      p {
+        color: $gray_50;
+        margin-left: 10rem;
+        max-width: 62.4rem;
+        text-align: justify;
+      }
+    }
+    .mtklpc {
+      display: flex;
+      align-items: center;
+      margin-top: 5.2rem;
+      p {
+        color: $gray_50;
+        margin-right: 7.2rem;
+        max-width: 62.4rem;
+        text-align: justify;
+      }
+      .i-cards {
+        position: relative;
+        width: 48.8rem;
+        height: 31.2rem;
+        img {
+          max-width: 20rem;
+        }
+        .card-left {
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: matrix(0.99, -0.17, 0.17, 0.98, 0, 0);
+          &:hover {
+            z-index: 2;
+            cursor: pointer;
+            left: 14rem;
+            top: 1rem;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            transition: 0.4s linear;
+          }
+        }
+        .card-front {
+          position: absolute;
+          z-index: 1;
+          left: calc(50% - 20.9rem / 2 + 0.05rem);
+          top: 0.4rem;
+          height: 29.6rem;
+        }
+        .card-right {
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform: matrix(0.99, 0.17, -0.17, 0.98, 0, 0);
+          &:hover {
+            z-index: 3;
+            cursor: pointer;
+            right: 15rem;
+            top: 1rem;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            transition: 0.4s linear;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(991px) {
+    .container {
+      .about {
+        p {
+          margin-left: 3rem;
+        }
+      }
+    }
+  }
+  @include responsive(768px) {
+    .container {
+      .about {
+        flex-direction: column;
+        p {
+          text-align: center;
+          margin-top: 3.2rem;
+          margin-left: 0;
+          max-width: 100%;
+        }
+        iframe {
+          height: 20rem;
+          width: 32rem;
+        }
+      }
+      .mtklpc {
+        overflow: hidden;
+        flex-direction: column;
+        p {
+          max-width: 100%;
+          text-align: center;
+          margin-right: 0;
+          margin-bottom: 3.2rem;
+        }
+      }
+    }
+  }
+  @include responsive(480px) {
+    .container {
+      .mtklpc {
+        .i-cards {
+          width: 38rem;
+          height: 28rem;
+        }
+      }
+    }
+  }
+  @include responsive(375px) {
+    .container {
+      .mtklpc {
+        .i-cards {
+          width: 22rem;
+          height: 30rem;
+        }
+      }
+    }
+  }
+}
+
+// Section Races
+.races {
+  height: 82rem;
+  margin-top: 7.2rem;
+  background: url("../assets/bg-fumaca.png") no-repeat center/cover;
+  .container {
+    padding-top: 15.2rem;
+    @include flex(column, center, center);
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      max-width: 59.2rem;
+    }
+  }
+}

@@ -1,0 +1,326 @@
+header {
+  top: 0;
+  width: 100%;
+  height: 8rem;
+  z-index: 100;
+  position: fixed;
+  padding: 0.7rem 0rem;
+  background: rgba(34, 33, 32, 0.36);
+  border-bottom: 0.2rem solid $dark;
+  transition: 0.3s linear;
+  -webkit-backdrop-filter: blur(0.6rem);
+  backdrop-filter: blur(0.6rem);
+  .container {
+    @include flex(row, center, space-between);
+    .nav_logo {
+      max-width: 13.4rem;
+      max-height: 6.6rem;
+      &:hover {
+        opacity: 0.6;
+        transition: 0.3s linear;
+      }
+    }
+    nav {
+      .menu {
+        display: none;
+      }
+      ._nav {
+        @include flex(row, center, space-between);
+        ul {
+          margin-right: 7.6rem;
+          @include flex(row, center, space-between);
+          li {
+            position: relative;
+            &:not(:last-child) {
+              margin-right: 2.6rem;
+            }
+            a {
+              color: $marrom;
+              cursor: pointer;
+              .arrow {
+                width: 1.6rem;
+                height: 0.8rem;
+                bottom: 1.2rem;
+                left: 1.6rem;
+                position: relative;
+                margin-right: 2.6rem;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  height: 0.2rem;
+                  width: 1.1rem;
+                  background: $marrom;
+                  transform: rotate(-45deg);
+                  left: -0.2rem;
+                  bottom: 0;
+                  border-radius: 0.2rem;
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  height: 0.2rem;
+                  width: 1.1rem;
+                  background: $marrom;
+                  transform: rotate(45deg);
+                  right: -0.2rem;
+                  bottom: 0;
+                  border-radius: 0.2rem;
+                }
+              }
+              &:hover {
+                color: $m-gold;
+                transition: 0.4s linear;
+                .arrow {
+                  &::before {
+                    background: $m-gold;
+                    transform: rotate(45deg);
+                    transition: 0.5s linear;
+                  }
+                  &::after {
+                    background: $m-gold;
+                    transform: rotate(-45deg);
+                    transition: 0.4s linear;
+                  }
+                }
+              }
+            }
+            .drop-down {
+              display: none;
+              position: absolute;
+              background: $gray-75;
+              border-radius: 0.8rem;
+              padding: 2.2rem 4.2rem 3.8rem;
+              overflow: hidden;
+              opacity: 0;
+              pointer-events: none;
+              animation: zoomdown 0.4s forwards;
+              flex-direction: column;
+              align-items: flex-start;
+              &::before {
+                content: "";
+                top: -0.7rem;
+                left: calc(50% - 38px / 2);
+                position: absolute;
+                width: 3.8rem;
+                height: 3.8rem;
+                background-color: $gray_75;
+                transform: rotate(45deg);
+                border-radius: 0.3rem;
+              }
+              li {
+                width: 100%;
+                display: flex;
+                margin-right: 0;
+                justify-content: center;
+                padding: 1.6rem 0.8rem;
+                border-bottom: 0.2rem solid $m-gold;
+                cursor: pointer;
+                a {
+                  color: $light;
+                  text-align: center;
+                  &:hover {
+                    color: $m-gold;
+                    transition: 0.3s linear;
+                  }
+                }
+              }
+            }
+            .active {
+              display: flex;
+              overflow: visible;
+              opacity: 1;
+              pointer-events: all;
+              top: 6.5rem;
+            }
+          }
+        }
+        .btns {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .idioma {
+            margin-right: 3.2rem;
+            img:hover {
+              opacity: 0.6;
+              transition: 0.3s linear;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include responsive(1200px) {
+    .container {
+      nav {
+        ._nav {
+          ul {
+            margin-right: 3.6rem;
+          }
+        }
+      }
+    }
+  }
+  @include responsive(991px) {
+    .container {
+      .nav_logo {
+        img {
+          width: 90%;
+        }
+      }
+      nav {
+        .menu {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            color: $m-orange;
+            z-index: 12;
+            background: transparent;
+            font-weight: 600;
+            font-size: 2.2rem;
+            line-height: 2rem;
+            letter-spacing: 0.01em;
+            &:not(:last-child) {
+              margin-right: 1.7rem;
+            }
+          }
+
+          .btn_square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.2rem solid $m-orange;
+            border-radius: 0.5rem;
+            height: 2.6rem;
+            width: 2.6rem;
+            &:hover {
+              cursor: pointer;
+            }
+            .hamburger {
+              border-top: 0.3rem solid $m-orange;
+              width: 1.6rem;
+              z-index: 12;
+              display: block;
+              position: relative;
+
+              &::before {
+                content: "";
+                display: block;
+                width: 1.6rem;
+                height: 0.3rem;
+                background: $m-orange;
+                margin-top: 0.2rem;
+                transition: 0.3s ease;
+              }
+
+              &::after {
+                content: "";
+                display: block;
+                width: 1.6rem;
+                height: 0.3rem;
+                background: $m-orange;
+                margin-top: 0.2rem;
+                transition: 0.3s ease;
+              }
+            }
+          }
+        }
+        &.active {
+          ._nav {
+            right: 0;
+            visibility: visible;
+          }
+          .menu {
+            .hamburger {
+              border-top-color: transparent;
+              &::before {
+                transform: rotate(135deg);
+                bottom: 1px;
+                position: absolute;
+              }
+              &::after {
+                transform: rotate(-135deg);
+                width: 1.6rem;
+                bottom: 1px;
+                position: absolute;
+              }
+            }
+          }
+        }
+        ._nav {
+          padding: 0rem 3rem;
+          display: block;
+          z-index: 10;
+          position: absolute;
+          top: 8rem;
+          right: -100%;
+          width: 100%;
+          max-width: 100%;
+          height: 100vh;
+          visibility: hidden;
+          transition: 0.6s ease-in-out;
+          background: rgba(28, 26, 24, 0.972);
+          justify-content: center;
+          ul {
+            width: 100%;
+            margin: 3.2rem 0rem 4rem;
+            @include flex(column, flex-start, center);
+
+            li {
+              &:not(:last-child) {
+                margin-right: 0;
+                margin-bottom: 3.2rem;
+              }
+              a {
+                .arrow {
+                  display: none;
+                }
+                &:hover {
+                  padding: 1.2rem 2rem;
+                  border-radius: 0.3rem;
+                  background-color: rgba(34, 33, 32, 0.36);
+                }
+              }
+              .drop-down {
+                padding: 2.2rem;
+                &::before {
+                  top: 4.8rem;
+                  left: -0.7rem;
+                }
+                li {
+                  padding: 0;
+                  border-bottom: none;
+                  &:not(:last-child) {
+                    margin-bottom: 1.8rem;
+                  }
+                }
+              }
+              .active {
+                top: -8.5rem;
+                left: 18rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include responsive(480px) {
+    .container {
+      nav ._nav ul li .drop-down {
+        padding: 1rem;
+        max-width: 12.5rem;
+        &::before {
+          top: 5.8rem;
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+        li {
+          a {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
