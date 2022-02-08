@@ -12,4 +12,4 @@
 
 ## Front-End
 
-[WEB](http://tos-web.netlify.app)
+[WEB](http://tales-of-shadowland.netlify.app)
